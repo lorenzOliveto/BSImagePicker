@@ -354,7 +354,12 @@ extension PhotosViewController {
                 }
             }
         }
-
+        else if photosDataSource.selections.count >= settings.maxNumberOfSelections {
+            let alertController = UIAlertController(title: "Cen select a maximum of \(settings.maxNumberOfSelections) images", message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alertController, animated: false, completion: nil)
+        }
+        
         return false
     }
     
